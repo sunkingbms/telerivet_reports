@@ -1,3 +1,26 @@
+"""
+Author: Singa Maurice Shanga
+Date: 11 March 2025
+Version: 1.0
+Description: 
+    This script interacts with Google APIs using OAuth 2.0 authentication.
+    It writes errors log details from the Telerivet API to a sheets designed
+    to save the daily report.
+
+License: MIT License
+
+Dependencies:
+    The following Python packages must be installed for this script to work:
+    - google-auth
+    - google-auth-oauthlib
+    - google-auth-httplib2
+    - google-api-python-client
+
+Installation:
+    To install the required dependencies, run:
+    pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+"""
+
 from datetime import datetime, date, time as dt_time
 import time
 import telerivet
@@ -46,9 +69,6 @@ def get_failed_messages(API_KEY: str, ken_project_id: str, delay: int = 6) -> li
     
     return messages
 
-API_KEY = "w_n6I_mg7AINI7n2i3ejMHShsCPYVfevEvqo"
-KEN_PROJECT_ID = "PJfea0e3ae2d40f54d"
-
 
 def error_log_occurrence(data: list) -> dict:
     """
@@ -67,28 +87,7 @@ def error_log_occurrence(data: list) -> dict:
         print(f"Error occurred: {e}")
         return{}
 
-"""
-Author: Singa Maurice Shanga
-Date: 11 March 2025
-Version: 1.0
-Description: 
-    This script interacts with Google APIs using OAuth 2.0 authentication.
-    It writes errors log details from the Telerivet API to a sheets designed
-    to save the daily report.
 
-License: MIT License
-
-Dependencies:
-    The following Python packages must be installed for this script to work:
-    - google-auth
-    - google-auth-oauthlib
-    - google-auth-httplib2
-    - google-api-python-client
-
-Installation:
-    To install the required dependencies, run:
-    pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-"""
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -148,8 +147,8 @@ def save_to_sheets(data):
         print(err)
 
 # Important keys to be deleted on Github
-API_KEY = "w_n6I_mg7AINI7n2i3ejMHShsCPYVfevEvqo"
-KEN_PROJECT_ID = "PJfea0e3ae2d40f54d"
+API_KEY = ""
+KEN_PROJECT_ID = ""
 
 # Colling all the functions written above
 
